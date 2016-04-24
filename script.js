@@ -52,6 +52,7 @@ $(function () {
 			var obj = {};
 			obj[hashName] = true;
 			chrome.storage.local.set(obj);
+			$icon.attr('src', icon_url_visited);
 			return true;
 		});
 
