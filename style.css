@@ -1,0 +1,14 @@
+.torrent_icon {
+	float: left;
+	margin-top: 4px;
+	margin-right: 15px;
+	border-width: 0 !important;
+}
+
+.torrent_icon:after {
+	content: none !important;
+}
+
+.torrent_icon img {
+	height: 16px;
+}

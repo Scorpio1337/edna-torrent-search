@@ -1,0 +1,22 @@
+{
+	"name": "Edna.cz | Torrent search icon",
+	"version": "1.1",
+	"description": "Adds an icon for search directly on torrent page, next to the series episode.",
+	"manifest_version": 2,
+	"icons": {
+		"64": "icon.png"
+	},
+	"content_scripts": [
+	    {
+	      "matches": ["http://www.edna.cz/*"],
+	      "js": ["jquery.min.js", "script.js"],
+	      "css" : ["style.css"]
+	    }
+	],
+	"web_accessible_resources": [
+		"*.png"
+	],
+	"permissions": [
+		"https://1337x.to/"
+	]
+}
