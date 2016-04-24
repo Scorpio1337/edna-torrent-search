@@ -17,6 +17,8 @@
 		"*.png"
 	],
 	"permissions": [
-		"https://1337x.to/"
+		"https://1337x.to/",
+		"storage",
+		"unlimitedStorage"
 	]
 }

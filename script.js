@@ -1,4 +1,5 @@
 var icon_url = chrome.extension.getURL("torrent_icon.png");
+var icon_url_visited = chrome.extension.getURL("torrent_icon_visited.png");
 
 $(function () {
 	$('.episodes tr').each(function () {
@@ -31,7 +32,6 @@ $(function () {
 
 		var $icon = $('<img>');
 		$icon.attr('src', icon_url);
-		$icon.attr('data-src', icon_url);
 
 		var $a = $('<a>');
 		$a.addClass('torrent_icon');
@@ -39,7 +39,34 @@ $(function () {
 		$a.attr('href', 'https://1337x.to/search/' + name.replace(' ', '+') + '/1/');
 		$a.attr('target', '_blank');
 
+		var hashName = hashCode(name).toString();
+
+		chrome.storage.local.get(hashName, function(items) {
+		    if (hashName in items == true) {
+		    	$icon.attr('src', icon_url_visited);
+		    }
+		});
+
+		// Add event to link click
+		$a.click(function () {
+			var obj = {};
+			obj[hashName] = true;
+			chrome.storage.local.set(obj);
+			return true;
+		});
+
 		var $name = $img_td.next().find('h3');
 		$name.prepend($a);
 	});
-})
+});
+
+hashCode = function(str){
+    var hash = 0;
+    if (str.length == 0) return hash;
+    for (i = 0; i < str.length; i++) {
+        char = str.charCodeAt(i);
+        hash = ((hash<<5)-hash)+char;
+        hash = hash & hash;
+    }
+    return hash;
+}
