@@ -1,6 +1,6 @@
 {
 	"name": "Edna.cz | Torrent search icon",
-	"version": "1.1",
+	"version": "1.2",
 	"description": "Adds an icon for search directly on torrent page, next to the series episode.",
 	"manifest_version": 2,
 	"icons": {
